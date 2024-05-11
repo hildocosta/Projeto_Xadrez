@@ -34,8 +34,18 @@ public class ChessMatch {
     // Configuração inicial do jogo de xadrez
     private void initialSetup() {
         // Coloca as peças iniciais no tabuleiro
-        placeNewPiece('b', 6, new Rook(board, Color.WHITE)); // Torre branca
-        placeNewPiece('e', 8, new King(board, Color.BLACK)); // Rei preto
-        placeNewPiece('e', 1, new King(board, Color.WHITE)); // Rei branco
+        placeNewPiece('c', 1, new Rook(board, Color.WHITE)); // Torre branca
+        placeNewPiece('c', 2, new Rook(board, Color.WHITE)); // Torre branca
+        placeNewPiece('d', 2, new Rook(board, Color.WHITE)); // Torre branca
+        placeNewPiece('e', 2, new Rook(board, Color.WHITE)); // Torre branca
+        placeNewPiece('e', 1, new Rook(board, Color.WHITE)); // Torre branca
+        placeNewPiece('d', 1, new King(board, Color.WHITE)); // Rei branco
+
+        placeNewPiece('c', 7, new Rook(board, Color.BLACK)); // Torre preta
+        placeNewPiece('c', 8, new Rook(board, Color.BLACK)); // Torre preta
+        placeNewPiece('d', 7, new Rook(board, Color.BLACK)); // Torre preta
+        placeNewPiece('e', 7, new Rook(board, Color.BLACK)); // Torre preta
+        placeNewPiece('e', 8, new Rook(board, Color.BLACK)); // Torre preta
+        placeNewPiece('d', 8, new King(board, Color.BLACK)); // Rei preto
     }
 }
