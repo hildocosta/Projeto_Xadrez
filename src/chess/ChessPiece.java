@@ -4,25 +4,17 @@ import boardgame.Board;
 import boardgame.Piece;
 
 public class ChessPiece extends Piece {
-	
-	private Color color;
+    
+    private Color color; // Cor da peça de xadrez
+    
+    // Construtor com Argumentos
+    public ChessPiece(Board board, Color color) {
+        super(board); // Chama o construtor da superclasse Piece
+        this.color = color; // Define a cor da peça
+    }
 
-	
-	// Metodo Construtor com Argumentos	
-	public ChessPiece(Board board, Color color) {
-		super(board);
-		this.color = color;
-	}
-
-
-	// Metodo Getters e Setters
-	public Color getColor() {
-		return color;
-	}
-
-
-	
-	
-	
-
+    // Método Getter para a cor da peça
+    public Color getColor() {
+        return color; // Retorna a cor da peça
+    }
 }
