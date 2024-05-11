@@ -1,7 +1,6 @@
 package chess;
 
 import boardgame.Board;
-import boardgame.Position;
 import chess.pieces.King;
 import chess.pieces.Rook;
 
@@ -25,12 +24,18 @@ public class ChessMatch {
         }
         return matrix;
     }
-
+    
+    // Método privado para colocar uma nova peça no tabuleiro
+    private void placeNewPiece(char column, int row, ChessPiece piece) {
+        // Converte a posição de xadrez para uma posição no tabuleiro e coloca a peça
+        board.placePiece(piece, new ChessPosition(column, row).toPosition());
+    }
+    
     // Configuração inicial do jogo de xadrez
     private void initialSetup() {
         // Coloca as peças iniciais no tabuleiro
-        board.placePiece(new Rook(board, Color.WHITE), new Position(2, 1)); // Torre branca
-        board.placePiece(new King(board, Color.BLACK), new Position(0, 4)); // Rei preto
-        board.placePiece(new King(board, Color.WHITE), new Position(7, 4)); // Rei branco
+        placeNewPiece('b', 6, new Rook(board, Color.WHITE)); // Torre branca
+        placeNewPiece('e', 8, new King(board, Color.BLACK)); // Rei preto
+        placeNewPiece('e', 1, new King(board, Color.WHITE)); // Rei branco
     }
 }
