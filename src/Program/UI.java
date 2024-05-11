@@ -1,6 +1,10 @@
 package Program;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 import chess.ChessPiece;
+import chess.ChessPosition;
 import chess.Color;
 
 public class UI {
@@ -25,7 +29,19 @@ public class UI {
     public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
     public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
     
-    // Método estático para imprimir o tabuleiro
+    // Método para ler uma posição de xadrez do usuário
+    public static ChessPosition readChessPosition(Scanner sc) {
+        try {
+            String s = sc.nextLine();
+            char column = s.charAt(0);
+            int row = Integer.parseInt(s.substring(1));
+            return new ChessPosition(column, row);
+        } catch (RuntimeException e) {
+            throw new InputMismatchException(" Error reading ChessPosition. Valid values are from a1 to h8.");
+        }
+    }
+    
+    // Método estático para imprimir o tabuleiro de xadrez
     public static void printBoard(ChessPiece[][] pieces) {
         for (int i = 0; i < pieces.length; i++) {
             // Imprime o número da linha (invertido, para imprimir na ordem correta)
@@ -39,7 +55,7 @@ public class UI {
         System.out.println("  a b c d e f g h");
     }
     
-    // Método privado para imprimir uma peça
+    // Método privado para imprimir uma peça do xadrez
     private static void printPiece(ChessPiece piece) {
         if (piece == null) {
             System.out.print("-"); // Se não houver peça, imprime "-"

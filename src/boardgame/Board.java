@@ -57,6 +57,29 @@ public class Board {
         piece.position = position; // Atualiza a posição da peça
     }
     
+    
+    public Piece removePiece(Position position) {
+    	if(!positionExists(position)) {
+            // Verifica se a posição está dentro dos limites do tabuleiro
+            throw new BoardException("Posição não está no tabuleiro");
+    		
+    	}
+    	
+    	if(piece(position) == null) {
+    		return null;
+    	}
+    	
+    	Piece auxiliar = piece(position);
+    	auxiliar.position = null;    
+    	
+    	pieces[position.getRow()][position.getColumn()] = null;
+    	
+    	return auxiliar;
+    
+    }
+    
+    
+    
     // Verifica se uma posição (linha, coluna) está dentro dos limites do tabuleiro
     private boolean positionExists(int row, int column) {
         return row >= 0 && row < rows && column >= 0 && column < columns;
