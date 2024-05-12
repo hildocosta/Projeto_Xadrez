@@ -4,44 +4,41 @@ import boardgame.Position;
 
 public class ChessPosition {
     
-    private char column; // Coluna da posição no formato de letra (a-h)
-    private int row; // Linha da posição
+    private char column;
+    private int row;
     
-    // Construtor que verifica se os valores fornecidos são válidos
+    // Construtor da classe ChessPosition
     public ChessPosition(char column, int row) {
         if (column < 'a' || column > 'h' || row < 1 || row > 8) {
-            // Lança uma ChessException se os valores fornecidos não estiverem dentro do intervalo permitido
-            throw new ChessException("Erro ao instanciar ChessPosition. Os valores válidos estão entre a1 e h8.");
+            throw new ChessException("Error instantiating ChessPosition. Valid values are from a1 to h8.");
         }
-        
-        this.column = column; // Define a coluna
-        this.row = row; // Define a linha
+        this.column = column;
+        this.row = row;
     }
-    
-    // Método Getter para a coluna
+
+    // Método para obter a coluna
     public char getColumn() {
-        return column; // Retorna a coluna
+        return column;
     }
-    
-    // Método Getter para a linha
+
+    // Método para obter a linha
     public int getRow() {
-        return row; // Retorna a linha
+        return row;
     }
-    
-    // Converte a posição de xadrez para uma posição no tabuleiro (classe Position)
+
+    // Converte uma posição de xadrez em uma posição do tabuleiro
     protected Position toPosition() {
-        return new Position(8 - row, column - 'a'); // Retorna uma nova posição convertida
+        return new Position(8 - row, column - 'a');
     }
     
-    // Converte uma posição no tabuleiro (classe Position) para uma posição de xadrez
+    // Converte uma posição do tabuleiro em uma posição de xadrez
     protected static ChessPosition fromPosition(Position position) {
-        // Converte a linha e a coluna da posição para os valores correspondentes em xadrez
-        return new ChessPosition((char)('a' + position.getColumn()), 8 - position.getRow());
+        return new ChessPosition((char) ('a' + position.getColumn()), 8 - position.getRow());
     }
     
-    // Representação textual da posição de xadrez (no formato "coluna + linha")
+    // Sobrescreve o método toString para representar a posição de xadrez como uma string
     @Override
     public String toString() {
-        return "" + column + row; // Retorna uma string no formato "coluna + linha"
+        return "" + column + row;
     }
 }

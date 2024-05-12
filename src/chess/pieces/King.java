@@ -6,20 +6,22 @@ import chess.Color;
 
 public class King extends ChessPiece {
     
-    // Construtor com Argumentos
+    // Construtor da classe King
     public King(Board board, Color color) {
         super(board, color); // Chama o construtor da superclasse ChessPiece
     }
     
-    // Representação textual da peça
+    // Retorna a representação textual da peça
     @Override
     public String toString() {
         return "K"; // Retorna "K" para representar o Rei
     }
 
-	@Override
-	public boolean[][] possibleMoves() {
-		boolean [][] mat = new boolean[getBoard().getRows()][getBoard().getColumns()];
-		return mat;
-	}
+    // Calcula os movimentos possíveis para o Rei
+    @Override
+    public boolean[][] possibleMoves() {
+        boolean[][] mat = new boolean[getBoard().getRows()][getBoard().getColumns()];
+        // Implemente aqui a lógica para calcular os movimentos possíveis do Rei
+        return mat;
+    }
 }

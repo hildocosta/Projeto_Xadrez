@@ -2,19 +2,26 @@ package chess;
 
 import boardgame.Board;
 import boardgame.Piece;
+import boardgame.Position;
 
 public abstract class ChessPiece extends Piece {
-    
-    private Color color; // Cor da peça de xadrez
-    
-    // Construtor com Argumentos
+
+    private Color color;
+
+    // Construtor da classe ChessPiece
     public ChessPiece(Board board, Color color) {
-        super(board); // Chama o construtor da superclasse Piece
-        this.color = color; // Define a cor da peça
+        super(board);
+        this.color = color;
     }
 
-    // Método Getter para a cor da peça
+    // Método para obter a cor da peça
     public Color getColor() {
-        return color; // Retorna a cor da peça
+        return color;
+    }
+    
+    // Verifica se há uma peça oponente em uma posição específica
+    protected boolean isThereOpponentPiece(Position position) {
+        ChessPiece p = (ChessPiece) getBoard().piece(position);
+        return p != null && p.getColor() != color;
     }
 }

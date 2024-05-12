@@ -1,36 +1,45 @@
 package boardgame;
 
 public class Position {
+
+    private int row;
+    private int column;
     
-    private int row; // Linha da posição
-    private int column; // Coluna da posição
-    
-    // Método Construtor com Argumentos
+    // Construtor da classe Position
     public Position(int row, int column) {
-        this.row = row; // Inicializa a linha
-        this.column = column; // Inicializa a coluna
+        this.row = row;
+        this.column = column;
     }
 
-    // Métodos Getters e Setters
+    // Método para obter o número da linha
     public int getRow() {
-        return row; // Retorna a linha
+        return row;
     }
 
+    // Método para definir o número da linha
     public void setRow(int row) {
-        this.row = row; // Define a linha
+        this.row = row;
     }
 
+    // Método para obter o número da coluna
     public int getColumn() {
-        return column; // Retorna a coluna
+        return column;
     }
 
+    // Método para definir o número da coluna
     public void setColumn(int column) {
-        this.column = column; // Define a coluna
+        this.column = column;
     }
     
-    // Método toString para representação textual da posição
+    // Define os valores da posição
+    public void setValues(int row, int column) {
+        this.row = row;
+        this.column = column;
+    }
+    
+    // Sobrescreve o método toString para representar a posição como uma string
     @Override
     public String toString() {
-        return row  + ", "  + column; // Retorna uma string no formato "linha, coluna"
+        return row + ", " + column;
     }
 }
